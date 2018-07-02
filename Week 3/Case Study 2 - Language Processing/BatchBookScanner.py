@@ -8,6 +8,10 @@ from TextAnalyzer import count_words
 BOOK_DIR = "./Books"
 
 def create_book_dataframe() -> pd.DataFrame:
+    """
+    Creates and returns a pandas DataFrame to store all the books listed under the
+    book directory.
+    """
     book_stats = pd.DataFrame(columns = ("Language", "Author", "Title", "Length", "Unique"))
     title_num = 1
     for LANGUAGE_DIR in os.listdir(BOOK_DIR):
@@ -21,6 +25,10 @@ def create_book_dataframe() -> pd.DataFrame:
     return book_stats
 
 def display_relationship_between_length_and_unique(data: pd.DataFrame) -> None:
+    """
+    Displays the relationship between length of the book in words and the unique
+    number of words in the book, stratified by language.
+    """
     plt.figure(figsize=(10,10))
     subset = data[data.Language == "English"]
     plt.loglog(subset.Length, subset.Unique, "o", label="English", color="crimson")
