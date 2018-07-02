@@ -27,7 +27,9 @@ def get_example_statistics():
     romeo_and_juliet_en = read_book(ROMEO_AND_JULIET_ENGLISH_PATH)
     word_counts_en = count_words(romeo_and_juliet_en)
     (num_unique_en, counts_en) = word_statistics(word_counts_en)
+    print(num_unique_en, sum(counts_en))
 
     romeo_and_juliet_de = read_book(ROMEO_AND_JULIET_GERMAN_PATH)
     word_counts_de = count_words(romeo_and_juliet_de)
     (num_unique_de, counts_de) = word_statistics(word_counts_de)
+    print(num_unique_de, sum(counts_de))
