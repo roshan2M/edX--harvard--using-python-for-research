@@ -12,7 +12,7 @@ def read_book(title_path: str) -> str:
         text = text.replace("\n", "").replace("\r", "")
     return text
 
-def word_statistics(word_counts: dict):
+def word_statistics(word_counts: dict) -> tuple:
     """
     Returns the number of unique words and the frequency of words in word_counts.
     """
@@ -20,9 +20,9 @@ def word_statistics(word_counts: dict):
     counts = word_counts.values()
     return (num_unique_words, counts)
 
-def get_example_statistics():
+def get_example_statistics() -> None:
     """
-    Gets sample statistics for the book Romeo and Juliet in English and German.
+    Prints sample statistics for the book Romeo and Juliet in English and German.
     """
     romeo_and_juliet_en = read_book(ROMEO_AND_JULIET_ENGLISH_PATH)
     word_counts_en = count_words(romeo_and_juliet_en)
