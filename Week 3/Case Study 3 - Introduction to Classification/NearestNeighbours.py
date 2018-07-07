@@ -18,4 +18,4 @@ def knn_predict(p: np.array, points: np.array, outcomes: np.array, k: int = 5):
     that most of those k nearest neighbours belong to.
     """
     k_nearest_indices = find_nearest_neighbours(p, points, k)
-    majority_vote(outcomes[k_nearest_indices])
+    return majority_vote(outcomes[k_nearest_indices])
