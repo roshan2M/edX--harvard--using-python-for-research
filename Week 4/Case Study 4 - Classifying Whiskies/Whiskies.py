@@ -7,17 +7,19 @@ def load_whiskies() -> pd.DataFrame:
     whiskies["Region"] = pd.read_csv("regions.txt")
     return whiskies
 
-def load_correlation_matrix(corr_flavours: pd.DataFrame, file_name: str) -> None:
+def plot_correlation_matrix(corr_matrix: pd.DataFrame, file_name: str) -> None:
     plt.figure(figsize=(10,10))
-    plt.pcolor(corr_flavours)
+    plt.pcolor(corr_matrix)
     plt.axis("tight")
     plt.colorbar()
     plt.savefig(file_name)
 
+def save_correlation_matrix(data: pd.DataFrame, file_name: str) -> None:
+    corr_matrix = pd.DataFrame.corr(data)
+    plot_correlation_matrix(corr_matrix, file_name)
+
 whiskies = load_whiskies()
 flavours = whiskies.iloc[:, 2:14]
-corr_flavours = pd.DataFrame.corr(flavours)
-load_correlation_matrix(corr_flavours, "Graph to Show Pearson's Coefficient Between Flavours of Whiskies.pdf")
 
-corr_whisky = pd.DataFrame.corr(flavours.transpose())
-load_correlation_matrix(corr_whisky, "Graph to Show Pearson's Coefficient Between Distilleries of Whiskies.pdf")
+save_correlation_matrix(flavours, "Graph to Show Pearson's Coefficient Between Flavours of Whiskies.pdf")
+save_correlation_matrix(flavours.transpose(), "Graph to Show Pearson's Coefficient Between Distilleries of Whiskies.pdf")
