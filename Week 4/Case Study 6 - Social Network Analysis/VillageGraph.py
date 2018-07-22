@@ -12,7 +12,3 @@ def basic_graph_stats(G: nx.Graph):
     print("Number of nodes: %d" % G.number_of_nodes())
     print("Number of edges: %d" % G.number_of_edges())
     print("Average degree: %.2f" % np.mean(list(dict(G.degree()).values())))
-
-G1, G2 = load_village_relation_graphs()
-basic_graph_stats(G1)
-basic_graph_stats(G2)
