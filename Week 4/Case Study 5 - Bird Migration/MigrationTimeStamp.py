@@ -41,7 +41,7 @@ def save_daily_mean_speeds(mean_speeds: np.array):
     plt.plot(mean_speeds)
     plt.title("Graph to Show Daily Mean Speed of Bird")
     plt.xlabel("Day Number")
-    plt.ylabel("Mean Speed of Bird")
+    plt.ylabel("Mean Speed of Bird (m/s)")
     plt.savefig("Mean Speeds of a Bird.pdf")
 
 bird_data = pd.read_csv("bird_tracking.csv")
