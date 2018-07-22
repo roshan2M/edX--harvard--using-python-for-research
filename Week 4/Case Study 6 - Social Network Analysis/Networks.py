@@ -16,12 +16,12 @@ def er_graph(N: int, p: float) -> nx.Graph:
                 G.add_edge(u, v)
     return G
 
-def plot_degree_distribution(G: nx.Graph):
+def plot_degree_distribution(G: nx.Graph, file_name: str):
     plt.hist(list(dict(G.degree()).values()), histtype="step")
     plt.title("Degree Distribution of Graph $G$")
     plt.xlabel("Degree $k$")
     plt.ylabel("Frequency")
-    plt.savefig("Plot of Degree Distribution.pdf")
+    plt.savefig(file_name)
 
 def generate_er_graph():
     G = er_graph(50, 0.08)
